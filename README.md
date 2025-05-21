@@ -9,19 +9,23 @@ Write a C program to convert a 23.65 into 25 using pointer
 4.	Print the modified value.
 
 ## PROGRAM:
+```c
+#include <stdio.h>
 
+int main() {
+    double num = 23.65;
+    double *ptr = &num;
+
+    *ptr = 25.0;
+
+    printf("Modified value: %.2lf\n", num);
+
+    return 0;
+}
+```
 ## OUTPUT:
  	
-
-
-
-
-
-
-
-
-
-
+![alt text](<exp 21.png>)
 
 ## RESULT:
 Thus the program to convert a 23.65 into 25 using pointer has been executed successfully.
@@ -45,8 +49,26 @@ Write a C program to calculate the Product of first 12 natural numbers using Rec
 6.	Print the result, indicating it is the product of the first 12 natural numbers.
 
 ## PROGRAM:
+```c
+#include <stdio.h>
+
+unsigned long long calculateProduct(int n) {
+    if (n == 1)
+        return 1;
+    return n * calculateProduct(n - 1);
+}
+
+int main() {
+    int n = 12;
+    unsigned long long product = calculateProduct(n);
+    printf("Product of first %d natural numbers: %llu\n", n, product);
+    return 0;
+}
+```
 ## OUTPUT:
-         		
+
+![alt text](<exp 22.png>)
+
 ## RESULT:
 
 Thus the program has been executed successfully.
@@ -68,17 +90,35 @@ Write C Program to find Sum of each row of a Matrix
 4.	Print the sum for each row.
 
 ## PROGRAM:
+```c
+#include <stdio.h>
 
+int main() {
+    int matrix[3][4] = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 10, 11, 12}
+    };
 
+    for(int i = 0; i < 3; i++) {
+        int row_sum = 0;
+        for(int j = 0; j < 4; j++) {
+            row_sum += matrix[i][j];
+        }
+        printf("Sum of row %d: %d\n", i+1, row_sum);
+    }
 
+    return 0;
+}
+```
 ## OUTPUT
 
 
- 
+ ![alt text](<exp 23.png>)
  
 
- ## RESULT
- 
+## RESULT
+Thus the C Program to find Sum of each row of a Matrix executed successfully. 
 
 
 # EX-24-STRINGS
@@ -96,11 +136,36 @@ Write C program for the below pyramid string pattern. Enter a string: PROGRAM En
 5.	End the program.
 
 ## PROGRAM:
+```c
+#include <stdio.h>
 
+int main() {
+    int num_rows, i, j, midpoint;
+    
+    printf("Enter number of rows for the pyramid: ");
+    scanf("%d", &num_rows);
+    
+    midpoint = (2 * num_rows - 1) / 2;
+    
+    for(i = 1; i <= num_rows; i++) {
+        // Print leading spaces
+        for(j = 0; j < midpoint - i + 1; j++) {
+            printf(" ");
+        }
+        // Print characters
+        for(j = 1; j <= 2*i - 1; j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+    
+    return 0;
+}
+```
 
  ## OUTPUT
 
- 
+ ![alt text](<exp 24.png>)
 
 ## RESULT
 
@@ -132,10 +197,32 @@ Step 5: Loop from i = 0 to i < n:
 Step 6: End the program.
 
 ## PROGRAM
+```c
+#include <stdio.h>
 
+int main() {
+    int i, n, arr[10];
+    int *parr = arr;
+
+    printf("Enter number of elements (max 10): ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements:\n", n);
+    for(i = 0; i < n; i++) {
+        scanf("%d", parr + i);
+    }
+
+    printf("Array elements: ");
+    for(i = 0; i < n; i++) {
+        printf("%d ", *(parr + i));
+    }
+
+    return 0;
+}
+```
 ## OUTPUT
 
- 
+ ![alt text](<exp 25.png>)
 
 ## RESULT
 
